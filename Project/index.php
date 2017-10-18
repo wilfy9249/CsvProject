@@ -66,7 +66,7 @@ abstract class Page {
     }
 
     public function get() {
-        echo 'default get message';
+        stringFunctions::printThis('default get message');
     }
 
     public function post() {
@@ -94,14 +94,14 @@ class Homepage extends Page {
 		 $targetDir = './uploads/';   
 		 $targetFile = $targetDir.$_FILES['fileToUpload']['name'];
 		 
-		 // SAVE THE FILE IN THE SERVER
+		 // SAVE THE CSV FILE IN THE SERVER
 		if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $targetFile)) {
-            $csvFileName = $_FILES['fileToUpload']['name'];
-            header('Location: htmlTable.php?filename='.$csvFileName.'&file=' .$targetFile);
+            //ROUTE THE PAGE TO DISPLAY THE CSV CONTENTS
+            header('Location: index.php?Page=htmlTable&file=' .$targetFile);
         }
 		else 
 		{
-			echo 'File Upload Failed';
+            stringFunctions::printThis('File Upload Failed');
 		}
     }
 }
