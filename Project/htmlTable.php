@@ -5,8 +5,8 @@ class htmlTable extends page
 
     public function get()
     {
+        //READ THE CSV FILE FROM THE SERVER AND DISPLAY IN HTML TAGS
         $file = $_GET['file'];
-
         $this->html .= '<table border = "1">';
 
         if (($file_handle = fopen($file, "r")) !== false) {

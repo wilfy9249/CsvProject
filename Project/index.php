@@ -55,9 +55,7 @@ abstract class Page {
 
     public function __construct()
     {
-        $this->html .= '<html>';
-        $this->html .= '<link rel="stylesheet" href="styles.css">';
-        $this->html .= '<body>';
+         htmlTags::htmlOpenElements($this->html);
     }
     public function __destruct()
     {
@@ -87,10 +85,8 @@ class Homepage extends Page {
     }
 	
 	public function post() {
-        //echo 'test';
-       // print_r($_FILES);
-	   
-	   //NAME OF THE DIRECTORY WHERE THE FILES SHOULD BE STORED
+
+        //NAME OF THE DIRECTORY WHERE THE FILES SHOULD BE STORED
 		 $targetDir = './uploads/';   
 		 $targetFile = $targetDir.$_FILES['fileToUpload']['name'];
 		 
