@@ -12,14 +12,19 @@ class htmlTable extends page
         if (($file_handle = fopen($file, "r")) !== false) {
 
             while (($data = fgetcsv($file_handle)) !== false) {
+
                 $this->html .= '<tr>';
+
                 foreach ($data as $value) {
                     $this->html .= "<td>$value</td>";
-               }
-                $this->html.= '</tr>';
+                }
+
+                $this->html .= '</tr>';
             }
+
+            //CLOSE THE CSV FILE
             fclose($file_handle);
-            $this->html .= '</table>';
+            htmlTags::htmlTableEndElements($this->html);
             stringFunctions::printThis($this->html);
         }
     }

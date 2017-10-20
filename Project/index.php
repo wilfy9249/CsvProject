@@ -37,7 +37,6 @@ class main {
         //instantiate the class that is being requested
          $page = new $pageRequest;
 
-
         if($_SERVER['REQUEST_METHOD'] == 'GET') 
 		{
             $page->get();
