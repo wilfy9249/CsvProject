@@ -15,4 +15,10 @@
             $html .= '<body>';
             return $html;
     }
+
+    static public function htmlEndElements($html) {
+
+                $html .= '</body></html>';
+                return $html;
+        }
   }

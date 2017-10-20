@@ -59,7 +59,7 @@ abstract class Page {
     }
     public function __destruct()
     {
-        $this->html .= '</body></html>';
+        htmlTags::htmlEndElements($this->html);
         stringFunctions::printThis($this->html);
     }
 
